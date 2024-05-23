@@ -16,7 +16,7 @@ def jugar_piedra_papel_tijera():
     print('La computadora eligió:', eleccion_computadora, 'y tú elegiste:', eleccion_usuario) 
      
     if eleccion_usuario == eleccion_computadora:
-        print("¡Es un empate!")
+        print("¡Es un empate con la computadora!")
     elif (eleccion_usuario == "piedra" and eleccion_computadora == "tijera") or \
          (eleccion_usuario == "papel" and eleccion_computadora == "piedra") or \
          (eleccion_usuario == "tijera" and eleccion_computadora == "papel"):
