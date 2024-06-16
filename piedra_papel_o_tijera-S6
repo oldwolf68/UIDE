@@ -1,0 +1,91 @@
+import random   # Importación del módulo random
+
+def jugar_piedra_papel_tijera():    # Se define la función jugar_piedra_papel_tijera
+    opciones = ("piedra", "papel", "tijera")    # Se declara la variable opciones con múltiples valores (tupla)
+
+    num_partidas = int(input("¿Cuántas partidas deseas jugar? "))   # La variable num_partidas almacena el número de partidas ingresadas por el usuario
+    modo_juego = input("¿Deseas jugar contra la computadora o contra otro usuario? (Escribe 'computadora' o 'usuario'): ").lower()   # La variable modo_juego almacena el modo de juego ingresado por el usuario y lo convierte a minúsculas
+
+    victorias_usuario1 = 0   # Se inicializa la variable victorias_usuario1 (contador)
+    victorias_usuario2 = 0   # Se inicializa la variable victorias_usuario2 (contador)
+    empates = 0   # Se inicializa la variable empates (contador)
+
+    for partida in range(num_partidas):   # Bucle for cuya variable 'partida' se va incrementando hasta llegar al valor de num_partidas-1
+        print(f"\nPartida {partida + 1}")   # f-string de Python permite formatear una cadena de caracteres incluyendo expresiones dinámicas que se evalúan en tiempo de ejecución.
+        
+        if modo_juego == 'computadora':   # Verifica si el modo de juego es contra la computadora
+            eleccion_computadora = random.choice(opciones)  # La computadora elige de manera aleatoria entre los valores de la variable opciones
+            print('La computadora ya eligió')   # Informa al usuario que la computadora ya ha hecho su elección
+            
+            eleccion_usuario = input("Elige piedra, papel o tijera: ").lower()  # 'lower' convierte la entrada del usuario en minúscula
+            
+            while eleccion_usuario not in opciones:   # Valida la entrada de la opción del usuario
+                print("Opción inválida. Por favor, elige piedra, papel o tijera.")
+                eleccion_usuario = input("Elige piedra, papel o tijera: ").lower()
+            
+            print('La computadora eligió:', eleccion_computadora, 'y tú elegiste:', eleccion_usuario) 
+            
+            if eleccion_usuario == eleccion_computadora:    # Determina si hay empate
+                empates += 1   # Incrementa en 1 el valor de la variable 'empates'
+                print("¡Es un empate con la computadora!")
+            elif (eleccion_usuario == "piedra" and eleccion_computadora == "tijera") or \
+                 (eleccion_usuario == "papel" and eleccion_computadora == "piedra") or \
+                 (eleccion_usuario == "tijera" and eleccion_computadora == "papel"):   # Verifica si el usuario ha ganado
+                print("¡Ganaste!")
+                victorias_usuario1 += 1   # Incrementa en 1 el valor de la variable 'victorias_usuario1'
+            else:   # La computadora gana
+                print("¡La computadora gana!")
+                victorias_usuario2 += 1   # Incrementa en 1 el valor de la variable 'victorias_usuario2'
+        elif modo_juego == 'usuario':   # Verifica si el modo de juego es contra otro usuario
+            eleccion_usuario1 = input("Usuario 1, elige piedra, papel o tijera: ").lower()
+            while eleccion_usuario1 not in opciones:
+                print("Opción inválida. Por favor, elige piedra, papel o tijera.")
+                eleccion_usuario1 = input("Usuario 1, elige piedra, papel o tijera: ").lower()
+            
+            eleccion_usuario2 = input("Usuario 2, elige piedra, papel o tijera: ").lower()
+            while eleccion_usuario2 not in opciones:
+                print("Opción inválida. Por favor, elige piedra, papel o tijera.")
+                eleccion_usuario2 = input("Usuario 2, elige piedra, papel o tijera: ").lower()
+
+            print('Usuario 1 eligió:', eleccion_usuario1, 'y Usuario 2 eligió:', eleccion_usuario2) 
+            
+            if eleccion_usuario1 == eleccion_usuario2:   # Determina si hay empate
+                empates += 1   # Incrementa en 1 el valor de la variable 'empates'
+                print("¡Es un empate!")
+            elif (eleccion_usuario1 == "piedra" and eleccion_usuario2 == "tijera") or \
+                 (eleccion_usuario1 == "papel" and eleccion_usuario2 == "piedra") or \
+                 (eleccion_usuario1 == "tijera" and eleccion_usuario2 == "papel"):   # Verifica si el Usuario 1 ha ganado
+                print("¡Usuario 1 gana!")
+                victorias_usuario1 += 1   # Incrementa en 1 el valor de la variable 'victorias_usuario1'
+            else:   # El Usuario 2 gana
+                print("¡Usuario 2 gana!")
+                victorias_usuario2 += 1   # Incrementa en 1 el valor de la variable 'victorias_usuario2'
+        else:   # Modo de juego inválido
+            print("Modo de juego inválido. Saliendo del juego.")
+            return   # Termina la función y sale del juego
+
+    print("\nResultados finales:")
+    print("Empates:", empates)
+    
+    if modo_juego == 'computadora':   # Imprime los resultados finales si el juego fue contra la computadora
+        print("Victorias del usuario:", victorias_usuario1)
+        print("Victorias de la computadora:", victorias_usuario2)
+        
+        if victorias_usuario1 > victorias_usuario2:   # Determina el ganador del juego
+            print("¡Eres el ganador del juego!")    
+        elif victorias_usuario2 > victorias_usuario1:
+            print("¡La computadora es la ganadora del juego!")
+        else:
+            print("¡El juego ha terminado en empate!")
+    else:   # Imprime los resultados finales si el juego fue contra otro usuario
+        print("Victorias del Usuario 1:", victorias_usuario1)
+        print("Victorias del Usuario 2:", victorias_usuario2)
+        
+        if victorias_usuario1 > victorias_usuario2:   # Determina el ganador del juego
+            print("¡Usuario 1 es el ganador del juego!")    
+        elif victorias_usuario2 > victorias_usuario1:
+            print("¡Usuario 2 es el ganador del juego!")
+        else:
+            print("¡El juego ha terminado en empate!")
+
+jugar_piedra_papel_tijera()   # Llama a la función para iniciar el juego
