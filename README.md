@@ -1,6 +1,7 @@
 Proyecto: Piedra, Papel o Tijera
 
 Descripción:
+
 Este programa desarrollado en Python recrea el clásico juego de Piedra, Papel o Tijera. 
 Permite jugar al juego "Piedra, Papel o Tijera" contra la computadora o contra otro usuario.
 Utiliza entradas numéricas para las opciones de juego (1 para piedra, 2 para papel, 3 para tijera).
