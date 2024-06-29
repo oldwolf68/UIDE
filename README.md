@@ -10,6 +10,7 @@ Oculta la elección del Usuario 1 cuando se juega contra otro usuario.
 Lleva un conteo de victorias y empates, y muestra los resultados finales al terminar todas las partidas.
 
 Principales Funcionalidades:
+
 Importaciones:
 import random: Importa el módulo random, que se utiliza para generar elecciones aleatorias para la computadora.
 from getpass import getpass: Importa la función getpass, que se utiliza para ocultar la entrada del Usuario 1 cuando se juega contra otro usuario.
