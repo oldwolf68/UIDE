@@ -1,4 +1,4 @@
- Proyecto: Piedra, Papel o Tijera
+Proyecto: Piedra, Papel o Tijera
 
 Descripción:
 
