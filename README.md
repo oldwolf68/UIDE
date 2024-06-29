@@ -12,17 +12,23 @@ Lleva un conteo de victorias y empates, y muestra los resultados finales al term
 Principales Funcionalidades:
 
 Importaciones:
+
 import random: Importa el módulo random, que se utiliza para generar elecciones aleatorias para la computadora.
+
 from getpass import getpass: Importa la función getpass, que se utiliza para ocultar la entrada del Usuario 1 cuando se juega contra otro usuario.
 
 Función principal: jugar_piedra_papel_tijera
+
 Esta función es la que contiene toda la lógica del juego.
 
 Mapeo de opciones:
+
 opciones = {1: "piedra", 2: "papel", 3: "tijera"}
+
 Se utiliza un diccionario para mapear las opciones de números (1, 2, 3) a las jugadas correspondientes ("piedra", "papel", "tijera").
 
 Validación del número de partidas:
+
 while True:
     try:
         num_partidas = int(input("¿Cuántas partidas deseas jugar? "))
@@ -32,10 +38,13 @@ while True:
             print("Por favor, ingresa un número entero positivo.")
     except ValueError:
         print("Entrada inválida. Por favor, ingresa un número entero.")
+
 Este bloque de código asegura que el usuario ingrese un número entero positivo para el número de partidas. Si el usuario ingresa un valor no entero o negativo, se le pedirá que lo intente de nuevo.
         
 Selección del modo de juego:
+
 modo_juego = input("¿Deseas jugar contra la computadora o contra otro usuario? (Escribe 'computadora' o 'usuario'): ").lower()
+
 El usuario elige si quiere jugar contra la computadora o contra otro usuario.
 
 Bucle de partidas:
